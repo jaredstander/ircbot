@@ -32,13 +32,13 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::SetTopic,
                          Cinch::Plugins::ShowURLTitle]
     c.plugins.options[Cinch::Plugins::HaikuCustom] = {:delay => 1}
-    c.shared[:cooldown] = { :config => { '#totaltest' => { :global => 1, :user => 20 } } }
+    c.shared[:cooldown] = { :config => { '#test' => { :global => 10, :user => 20 } } }
   end
 
   # Welcome new users when they join a channel with a sample of welcome messages.
   on :join do |m|
     unless m.user.nick == bot.nick
-      m.reply("#{Format(:yellow, "Welcome, #{m.user.nick}!")}", true)
+      m.reply("#{Format(:yellow, "Welcome, #{m.user.nick}!")}", false)
     end
   end
 end
